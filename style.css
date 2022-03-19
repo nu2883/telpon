@@ -1,0 +1,534 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body {
+  background: seashell;
+  /*     min-height: 300vh; */
+  color: black;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.6s;
+  padding: 40px 40px;
+  z-index: 100000;
+}
+header.sticky {
+  padding: 5px 40px;
+  background-color: #fff;
+}
+header .logo {
+  position: relative;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  font-size: 2em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: 0.6s;
+  float: left;
+  vertical-align: baseline;
+  vertical-align: middle;
+  /* justify-self: flex-start; */
+}
+header ul {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: right;
+}
+header ul li {
+  position: relative;
+  list-style: none;
+}
+header .fa-bars,
+header ul li a {
+  position: relative;
+  margin: 0 15px;
+  text-decoration: none;
+  color: #fff;
+  /* color: greenyellow; */
+  letter-spacing: 2px;
+  font-weight: 500px;
+  transition: 0.6s;
+}
+.banner {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  /* background: url('https://gdurl.com/5jc4'); */
+  background-size: cover;
+}
+
+header.sticky .logo,
+header.sticky .fa-bars,
+header.sticky ul li a {
+  color: #000;
+}
+
+/* besar */
+@media (min-width: 991px) {
+  header .fa-bars {
+    display: none;
+  }
+  header .logo .img {
+    width: 55px;
+  }
+  .baperkecil {
+    display: none;
+  }
+  .logoCenter {
+    line-height: 50px;
+    height: 50px;
+  }
+
+  .logoCenter span {
+    line-height: 1.5;
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 33px;
+  }
+
+  .column1 {
+    float: left;
+    width: 95%;
+    padding: 0 10px;
+  }
+
+  /* Remove extra left and right margins, due to padding */
+  .row1 {
+    margin: 0 -5px;
+  }
+
+  /* Clear floats after the columns */
+  .row1:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .card1 {
+    margin-left: 5%;
+    display: flex;
+    border-radius: 5%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+    margin-bottom: 20px;
+    color: blue;
+  }
+
+  .gambar-profil {
+    display: block;
+    /* margin-left: 10px; */
+    width: 100%;
+  }
+  .dataprofil {
+    margin-left: 5%;
+    text-align: left;
+    width: 50%;
+  }
+  .tabelprofil {
+    width: 100%;
+    text-align: left;
+    color: black;
+    font-size: 20px;
+  }
+  .tabelprofil td {
+    text-align: left;
+    /* text-justify: center; */
+    vertical-align: top;
+  }
+}
+
+/* layar kecil */
+@media (max-width: 991px) {
+  header .logo {
+    display: inline;
+    /* padding: 0 5px; */
+    font-size: 15px;
+    font-weight: 50px;
+  }
+  header .logo .img {
+    width: 30px;
+  }
+  .fa-bars {
+    display: block;
+  }
+  .baper {
+    display: none;
+  }
+  header ul {
+    display: none;
+  }
+
+  .logoCenter {
+    line-height: 40px;
+    height: 40px;
+  }
+
+  .logoCenter span {
+    line-height: 1.5;
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 10px;
+  }
+
+  .column1 {
+    float: left;
+    width: 95%;
+    padding: 0 10px;
+  }
+
+  /* Remove extra left and right margins, due to padding */
+  .row1 {
+    margin: 0 -5px;
+  }
+
+  /* Clear floats after the columns */
+  .row1:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .column1 {
+    text-align: center;
+    width: 100%;
+    display: block;
+  }
+  .card1 {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: white;
+    margin-bottom: 20px;
+    color: blue;
+  }
+  .tabelprofil {
+    width: 50%;
+    text-align: left;
+    color: black;
+    font-size: 5px;
+  }
+
+  .gambar-profil {
+    display: block;
+    margin-left: 5%;
+    width: 90%;
+  }
+  .dataprofil {
+    margin-left: 5%;
+    text-align: left;
+  }
+  .tabelprofil {
+    width: 100%;
+    text-align: left;
+    color: black;
+    font-size: 18px;
+  }
+  .tabelprofil td {
+    text-align: left;
+    /* text-justify: center; */
+    vertical-align: top;
+  }
+}
+
+/* kuicil */
+@media (max-width: 377px) {
+  header .logo span {
+    display: inline;
+    /* padding: 0 3px; */
+    font-size: 12px;
+    font-weight: 50px;
+    color: white;
+  }
+  header .logo .img {
+    /* display: none; */
+    width: 20px;
+  }
+
+  header .logo .img {
+    width: 30px;
+  }
+  .logoCenter {
+    line-height: 50px;
+    height: 50px;
+  }
+  .logoCenter span {
+    line-height: 1.5;
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 25px;
+  }
+
+  header.sticky .logo,
+  header.sticky span,
+  header.sticky .fa-bars,
+  header.sticky ul li a {
+    color: #000;
+  }
+}
+
+table {
+  width: 90%;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+}
+table td {
+  text-align: center;
+}
+.gambar {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+.menu {
+  position: fixed;
+  margin-top: 50px;
+  width: 200px;
+  text-align: left;
+  color: white;
+  font-size: 25px;
+  font-weight: 250px;
+  margin-left: 100px;
+}
+.menu h1 {
+  margin-bottom: 50px;
+}
+.menu ul {
+  margin-bottom: 50px;
+}
+.menu ul li a {
+  list-style: none;
+  text-decoration: none;
+  color: white;
+}
+.show_player {
+  text-align: center;
+  margin-top: 100px;
+  /* margin-left: 50px; */
+  /* margin-right: auto; */
+}
+
+/* Float four columns side by side */
+.row {
+  /* margin: auto; */
+  width: 100%;
+  /* text-align: center; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+}
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 7px;
+  /* position: absolute; */
+  /* width: 30%;
+    height: 30%; */
+}
+
+/* Remove extra left and right margins, due to padding */
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 558px) {
+  .column {
+    width: 33%;
+    display: block;
+  }
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: white;
+    margin-bottom: 20px;
+    color: burlywood;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  border-radius: 5%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 7px;
+  text-align: center;
+  background-color: #f1f1f1;
+  margin-bottom: 10px;
+  color: blue;
+  width: 100%;
+  height: 80%;
+  overflow: auto;
+}
+
+/* Enter and leave animations can use different */
+/* durations and timing functions.              */
+.slide-fade-enter-active {
+  transition: all 0.3s ease;
+}
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-enter, .slide-fade-leave-to
+  /* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}
+
+/* Float four columns side by side */
+
+.turnament {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.column2 {
+  float: left;
+  width: 30%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row2 {
+  /* margin: auto; */
+  width: 90%;
+}
+
+.singleTurnamen {
+  margin-top: 150px;
+  text-align: center;
+}
+
+.singleTurnamen .gambar {
+  margin-top: 25px;
+  width: 90%;
+}
+
+.singleTurnamen .peserta {
+  margin-top: 25px;
+  width: 90%;
+  margin-left: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  /* background-color: white; */
+}
+
+.singleTurnamen .peserta .player {
+  margin: 5px;
+  width: 100px;
+  height: 60px;
+  border-radius: 30% 30%;
+  padding-top: 2px;
+  background-color: white;
+  color: black;
+}
+
+.singleTurnamen .peserta .player .nama {
+  color: black;
+  border-radius: 50%;
+}
+
+/* button {
+  cursor: pointer;
+  position: relative;
+  padding: 2.5rem 7.5rem;
+  border-radius: 3.75rem;
+  line-height: 2.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+
+  border: 1px solid #012880;
+  background-image: linear-gradient(-180deg, #aaff89 0%, #2a1fc0 100%);
+  box-shadow: 0 1rem 1.25rem 0 rgba(22, 75, 195, 0.5),
+    0 -0.25rem 1.5rem rgba(110, 15, 155, 1) inset,
+    0 0.75rem 0.5rem rgba(255, 255, 255, 0.4) inset,
+    0 0.25rem 0.5rem 0 rgb(235, 2, 2) inset;
+}
+
+button span {
+  color: transparent;
+  background-image: linear-gradient(0deg, #ee82da 0%, #fefafd 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 2px 2px hsla(290, 100%, 20%, 1));
+}
+
+button::before {
+  content: "";
+  display: block;
+  height: 0.25rem;
+  position: absolute;
+  top: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 7.5rem);
+  background: #fff;
+  border-radius: 100%;
+
+  opacity: 0.7;
+  background-image: linear-gradient(
+    -270deg,
+    rgba(255, 255, 255, 0) 0%,
+    #ffffff 20%,
+    #ffffff 80%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+button::after {
+  content: "";
+  display: block;
+  height: 0.25rem;
+  position: absolute;
+  bottom: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 7.5rem);
+  background: #fff;
+  border-radius: 100%;
+
+  filter: blur(1px);
+  opacity: 0.05;
+  background-image: linear-gradient(
+    -270deg,
+    rgba(255, 255, 255, 0) 0%,
+    #ffffff 20%,
+    #ffffff 80%,
+    rgba(255, 255, 255, 0) 100%
+  );
+} */
+
+.loading {
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: black;
+  opacity: 1;
+  position: absolute;
+}
