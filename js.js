@@ -119,8 +119,8 @@ var app = new Vue({
     // simpanUrutan() {
     //   console.log(this.santri);
     // },
-    klikTelpon(index) {
-        if (confirm("Anda memulai telpon sekarang ") == true) {
+    klikTelpon(x,index) {
+        if (confirm("Anda memulai telpon sekarang : "+x) == true) {
           this.aktif = index + 1;
           const d = new Date();
           let hour = d.getHours();
