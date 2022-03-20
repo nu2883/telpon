@@ -9,7 +9,9 @@ var app = new Vue({
     ditt: ['difa', 'akma', 'akbar'],
     urutan1: [],
     urutan2: [],
-    dataAktif:[],
+    dataAktif: [],
+    edit: false,
+    dataUrutan:[],
     
 
   },
@@ -160,13 +162,13 @@ var app = new Vue({
           this.urutan1.push(element)
         });
                 
-        // var vId = Date.now();
+        var vId = Date.now();
         var vUserName = this.tanggal.toString();
         // var vPassword = this.dataUrut;
         var ditt = this.dataUrut;
 
         // var vNama = this.Nama.toString();
-        var lin = `https://script.google.com/macros/s/AKfycbwY7gq_8UVJkczdyyaIQR5aTvjTaWE272YkWMvSZvmo0tKk9GQ88kstKAUo-Tt6p4rs/exec?action=insert&table=urutan&data={"tanggal":"${vUserName}","urutan":"${ditt}"}`;
+        var lin = `https://script.google.com/macros/s/AKfycbwY7gq_8UVJkczdyyaIQR5aTvjTaWE272YkWMvSZvmo0tKk9GQ88kstKAUo-Tt6p4rs/exec?action=insert&table=urutan&data={"id":"${vId}","tanggal":"${vUserName}","urutan":"${ditt}"}`;
         // this.test = lin;
 
         // var lin = `https://script.google.com/macros/s/AKfycbwY7gq_8UVJkczdyyaIQR5aTvjTaWE272YkWMvSZvmo0tKk9GQ88kstKAUo-Tt6p4rs/exec?action=insert&table=urutan&data={"tanggal":"${vUserName}","urutan":${vPassword}}`;
@@ -215,6 +217,60 @@ var app = new Vue({
       
       
     },
+
+    editUrutan(s) {
+      console.log(s)
+      this.edit = true;
+      if (this.urutan2.length > 0){
+        this.dataUrutan = this.urutan2[0].urutan;
+        }
+
+    },
+
+    updateUrutan() {
+      if (this.urutan2.length > 0) {
+
+        this.dataAntri = this.dataUrutan;
+        var it = this.urutan2[0].id;
+        console.log(it)
+        var urutanx = this.dataUrutan;
+        
+        var url = `https://script.google.com/macros/s/AKfycbwY7gq_8UVJkczdyyaIQR5aTvjTaWE272YkWMvSZvmo0tKk9GQ88kstKAUo-Tt6p4rs/exec?action=update&table=urutan&id=${it}&data={"urutan":"${urutanx}"}`
+        // this.test = url;
+        // timestamp=${itimestamp}
+        console.log(url)
+        $.ajax({
+          type: 'GET',
+          url: url,
+          crossDomain: true,
+          dataType: 'jsonp',
+          dataType: "text",
+          success: function (resultData) {
+            console.log("oke")
+            app.edit = false;
+            this.urutan2 = []
+          }
+        });  
+
+
+      }
+
+    // ambil data grup
+    this.urutan2 = [];
+
+    var url ="https://script.google.com/macros/s/AKfycbwY7gq_8UVJkczdyyaIQR5aTvjTaWE272YkWMvSZvmo0tKk9GQ88kstKAUo-Tt6p4rs/exec?action=read&table=Qurutan";
+
+    $.getJSON(url, function (json) {
+    // console.log(json.data);
+    // console.log(json.data.records)
+    app.urutan2 = json.data;
+    }); 
+      
+
+
+        
+    },
+    
 
 
 

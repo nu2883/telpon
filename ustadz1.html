@@ -52,14 +52,37 @@
         <h1>View Wali Santri</h1>
         <!-- <span v-if="urutan2.length > 0">{{urutan2[0].urutan.split(",")}}</span> -->
         <span v-if="urutan2.length > 0"
-          >{{urutan2[0].tanggal.substring(0, 10)}}</span
+          >tanggal {{urutan2[0].tanggal.substring(0, 10)}}</span
         >
+        <br />
+        <button
+          v-if="!edit"
+          @click="editUrutan(dataAntri)"
+          class="btn btn-warning mt-2 mb-2"
+        >
+          Edit Urutan
+        </button>
         <!-- <br /><br />
         {{aktif}} <br /><br />
         {{dataAktif}} <br /><br />
         <span v-if="urutan2.length > 0">{{urutan2[0].tanggal}}</span> -->
-
-        <div class="container mb-5">
+        <!-- <span>{{urutan2}}</span> -->
+        <div v-if="edit">
+          <div>
+            <div class="div-group">
+              <textarea
+                v-model="dataUrutan"
+                class="form-control"
+                id="exampleFormControlTextarea1"
+                rows="3"
+              ></textarea>
+              <button @click="updateUrutan" class="btn btn-primary mt-2 mb-2">
+                Update
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="container mb-5" v-else>
           <div v-for="x,index in dataAntri">
             <button
               style="width: 70%"
@@ -89,6 +112,7 @@
 
         <br /><br /><br /><br />
       </div>
+      <br /><br /><br /><br />
     </div>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
