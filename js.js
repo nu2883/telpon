@@ -206,7 +206,9 @@ var app = new Vue({
           dataType: 'jsonp',
           dataType: "text",
           success: function (resultData) {
-            console.log("oke")
+            console.log("oke");
+            app.urutan2 = [];
+            app.ambilUrutan();
           }
         });
         
