@@ -248,7 +248,8 @@ var app = new Vue({
           success: function (resultData) {
             console.log("oke")
             app.edit = false;
-            this.urutan2 = []
+            app.urutan2 = [];
+            app.ambilUrutan();
           }
         });  
 
@@ -256,7 +257,14 @@ var app = new Vue({
       }
 
     // ambil data grup
-    this.urutan2 = [];
+
+      
+
+
+        
+    },
+    ambilUrutan() {
+          this.urutan2 = [];
 
     var url ="https://script.google.com/macros/s/AKfycbwY7gq_8UVJkczdyyaIQR5aTvjTaWE272YkWMvSZvmo0tKk9GQ88kstKAUo-Tt6p4rs/exec?action=read&table=Qurutan";
 
@@ -265,10 +273,6 @@ var app = new Vue({
     // console.log(json.data.records)
     app.urutan2 = json.data;
     }); 
-      
-
-
-        
     },
     
 
